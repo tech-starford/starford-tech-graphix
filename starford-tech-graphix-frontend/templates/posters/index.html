@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starford Tech Graphics | Free Poster Templates</title>
+    <meta name="description" content="Download 180+ free, professional poster templates – movie posters, event posters, motivational posters and more. Fully customisable and print-ready.">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/icons/starford-tech-box-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/icons/starford-tech-box-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Slick Slider -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+    <!-- Custom CSS for this page -->
+    <link rel="stylesheet" href="../../assets/css/templates/posters/index.css">
+</head>
+<body>
+    <!-- ===== HEADER (exactly as before) ===== -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="../../index.html" class="logo">
+                <img src="../../assets/images/icons/starford.png" alt="Starford Tech Graphics Logo"> 
+                Starford<span>Tech</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="../../templates/index.html">Templates <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu dropdown">
+                            <li>
+                                <a href="../../templates/flyers/index.html">Flyers <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-side">
+                                    <li><a href="#business-flyers">Business Flyers</a></li>
+                                    <li><a href="#event-flyers">Event Flyers</a></li>
+                                    <li><a href="#sale-flyers">Sale Flyers</a></li>
+                                    <li><a href="#real-estate-flyers">Real Estate</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="../../templates/logos/index.html">Logos <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-side">
+                                    <li><a href="#business-logos">Business Logos</a></li>
+                                    <li><a href="#creative-logos">Creative Logos</a></li>
+                                    <li><a href="#minimal-logos">Minimal Logos</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="../../templates/mockups/index.html">Mockups <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-side">
+                                    <li><a href="#device-mockups">Device Mockups</a></li>
+                                    <li><a href="#branding-mockups">Branding Mockups</a></li>
+                                    <li><a href="#product-mockups">Product Mockups</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../../templates/posters/index.html">Posters</a></li>
+                            <li><a href="../../templates/calendars/index.html">Calendars</a></li>
+                            <li><a href="../../templates/business-cards/index.html">Business Cards</a></li>
+                            <li><a href="../../templates/social-media/index.html">Social Media</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="../../resources/index.html">Resources <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../../resources/index.html"><i class="fas fa-video"></i> Tutorials</a></li>
+                            <li><a href="../../templates/index.html"><i class="fas fa-file-download"></i> Templates</a></li>
+                            <li><a href="../../fonts.html"><i class="fas fa-font"></i> Fonts</a></li>
+                            <li><a href="../../color-palettes.html"><i class="fas fa-palette"></i> Color Palettes</a></li>
+                            <li><a href="../../blog/index.html"><i class="fas fa-blog"></i> Design Blog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../../blog/index.html">Blog</a></li>
+                    <li><a href="../../about.html">About</a></li>
+                    <li><a href="../../contact.html">Contact</a></li>
+                </ul>
+                
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search posters...">
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+                    <div class="user-auth">
+                        <button class="user-btn" id="userBtn">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Account</span>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="#" class="login-btn" id="loginBtn">Login</a>
+                            <a href="#" class="signup-btn" id="signupBtn">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Mobile Navigation Toggle -->
+            <button class="mobile-nav-toggle" aria-controls="mobile-nav" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <a href="../../index.html" class="logo">
+                <img src="../../assets/images/icons/starford.png" alt="Starford Tech Graphics Logo">
+                Starford<span>Tech</span>
+            </a>
+            <button class="mobile-nav-toggle" aria-controls="mobile-nav" aria-expanded="false">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="../../index.html">Home</a></li>
+            <li>
+                <div class="mobile-dropdown-toggle">
+                    <a href="../../templates/index.html">Templates <i class="fas fa-chevron-down"></i></a>
+                </div>
+                <ul class="mobile-dropdown">
+                    <li><a href="../../templates/flyers/index.html">Flyers</a></li>
+                    <li><a href="../../templates/logos/index.html">Logos</a></li>
+                    <li><a href="../../templates/mockups/index.html">Mockups</a></li>
+                    <li><a href="../../templates/posters/index.html">Posters</a></li>
+                    <li><a href="../../templates/calendars/index.html">Calendars</a></li>
+                    <li><a href="../../templates/business-cards/index.html">Business Cards</a></li>
+                    <li><a href="../../templates/social-media/index.html">Social Media</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="mobile-dropdown-toggle">
+                    <a href="../../resources/index.html">Resources <i class="fas fa-chevron-down"></i></a>
+                </div>
+                <ul class="mobile-dropdown">
+                    <li><a href="../../resources/index.html">Tutorials</a></li>
+                    <li><a href="../../templates/index.html">Templates</a></li>
+                    <li><a href="../../fonts.html">Fonts</a></li>
+                    <li><a href="../../color-palettes.html">Color Palettes</a></li>
+                    <li><a href="../../blog/index.html">Design Blog</a></li>
+                </ul>
+            </li>
+            <li><a href="../../blog/index.html">Blog</a></li>
+            <li><a href="../../about.html">About</a></li>
+            <li><a href="../../contact.html">Contact</a></li>
+            <li><a href="#" class="mobile-login-btn">Login</a></li>
+            <li><a href="#" class="mobile-signup-btn">Sign Up</a></li>
+        </ul>
+    </div>
+
+    <!-- Auth Modal (FULL VERSION) -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <img class="auth-modal-img" src="../../assets/images/icons/starford.png" alt="Starford Tech">
+                <h2>Welcome Back</h2>
+                <button class="close-auth-modal" id="closeAuthModal">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+                
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-block">Login</button>
+                    <div class="divider">
+                        <span>Or continue with</span>
+                    </div>
+                    <div class="social-login">
+                        <button type="button" class="social-btn google">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" class="social-btn facebook">
+                            <i class="fab fa-facebook"></i> Facebook
+                        </button>
+                    </div>
+                </form>
+                
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" placeholder="Confirm Password" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="terms">
+                            <input type="checkbox" required>
+                            I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-block">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ===== STARRY HERO – poster specific ===== -->
+    <section class="hero starry-hero">
+        <div class="container hero-container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-badge">
+                    <span><i class="fas fa-image"></i> 180+ Free Poster Templates</span>
+                </div>
+                <h1>Stunning <span class="gradient-text">Poster</span> Designs</h1>
+                <p class="hero-subtitle">Download professionally designed movie, event, motivational and advertising posters. 100% free for commercial and personal use.</p>
+                <div class="hero-btns">
+                    <a href="#templates-grid" class="btn btn-glow" id="exploreBtn">
+                        <i class="fas fa-poster"></i> Explore Posters
+                    </a>
+                    <a href="#featured-templates" class="btn btn-outline-light">
+                        <i class="fas fa-fire"></i> Most Popular
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="tech-stars-container">
+            <canvas id="starCanvas" class="starCanvas"></canvas>
+            <div class="tech-center-overlay"></div>
+            <div class="tech-glow"></div>
+        </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT (poster grid + modal) ===== -->
+    <div class="container" id="templates-grid">
+        <!-- Search & Filter Section -->
+        <div class="search-filter-section" data-aos="fade-up">
+            <div class="advanced-filters">
+                <div class="filter-group">
+                    <span class="filter-label"><i class="fas fa-filter"></i> Filter by:</span>
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="movie">Movie</option>
+                        <option value="event">Event</option>
+                        <option value="motivational">Motivational</option>
+                        <option value="advertising">Advertising</option>
+                        <option value="music">Music</option>
+                        <option value="educational">Educational</option>
+                        <option value="travel">Travel</option>
+                        <option value="minimal">Minimal</option>
+                    </select>
+                    <select class="filter-select" id="orientationFilter">
+                        <option value="all">All Orientations</option>
+                        <option value="portrait">Portrait</option>
+                        <option value="landscape">Landscape</option>
+                        <option value="square">Square</option>
+                    </select>
+                    <select class="filter-select" id="sortFilter">
+                        <option value="newest">Newest First</option>
+                        <option value="popular">Most Popular</option>
+                        <option value="downloads">Most Downloads</option>
+                        <option value="az">A to Z</option>
+                        <option value="za">Z to A</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Filter Buttons (by category) -->
+        <div class="filter-controls" data-aos="fade-up">
+            <button class="filter-btn active" data-filter="all">All Posters</button>
+            <button class="filter-btn" data-filter="movie">Movie</button>
+            <button class="filter-btn" data-filter="event">Event</button>
+            <button class="filter-btn" data-filter="motivational">Motivational</button>
+            <button class="filter-btn" data-filter="advertising">Advertising</button>
+            <button class="filter-btn" data-filter="music">Music</button>
+            <button class="filter-btn" data-filter="educational">Educational</button>
+            <button class="filter-btn" data-filter="travel">Travel</button>
+            <button class="filter-btn" data-filter="minimal">Minimal</button>
+        </div>
+
+        <!-- Projects Grid – dynamically populated via JS -->
+        <div class="projects-grid" id="projectsGrid"></div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container" data-aos="fade-up">
+            <button class="btn load-more-btn" id="loadMoreBtn">
+                <i class="fas fa-plus"></i> Load More Posters
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== MODAL POPUP (full details) ===== -->
+    <div class="modal-overlay" id="posterModal">
+        <div class="modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            
+            <div class="modal-header">
+                <img id="modalImage" src="" alt="Poster Thumbnail">
+                <div class="floating-actions">
+                    <button class="action-btn like" id="modalLikeBtn" title="Like">
+                        <i class="fas fa-heart"></i>
+                        <span class="action-count" id="modalLikeCount">0</span>
+                    </button>
+                    <button class="action-btn download" id="modalDownloadBtn" title="Download">
+                        <i class="fas fa-download"></i>
+                    </button>
+                    <button class="action-btn favorite" id="modalFavoriteBtn" title="Add to Favorites">
+                        <i class="fas fa-star"></i>
+                    </button>
+                    <button class="action-btn share" id="modalShareBtn" title="Share">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <button class="action-btn bookmark" id="modalBookmarkBtn" title="Bookmark">
+                        <i class="fas fa-bookmark"></i>
+                    </button>
+                    <button class="action-btn expand" id="modalExpandBtn" title="Expand">
+                        <i class="fas fa-expand"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-header-info">
+                    <div>
+                        <h2 class="modal-title" id="modalTitle"></h2>
+                        <p class="modal-subtitle" id="modalSubtitle"></p>
+                    </div>
+                    <div class="modal-price" id="modalPrice">
+                        <span class="price-free">FREE</span>
+                    </div>
+                </div>
+
+                <!-- Detailed description sections -->
+                <div class="modal-description-container">
+                    <h3>Description</h3>
+                    <p class="modal-description" id="modalDescription"></p>
+                </div>
+                
+                <div class="design-details-section">
+                    <h3>Design Details</h3>
+                    <p id="designDetails"></p>
+                </div>
+                
+                <div class="materials-section">
+                    <h3>Materials & Specifications</h3>
+                    <p id="materialsSpecs"></p>
+                </div>
+                
+                <div class="inspiration-section">
+                    <h3>Design Inspiration</h3>
+                    <p id="designInspiration"></p>
+                </div>
+                
+                <div class="applications-section">
+                    <h3>Practical Applications</h3>
+                    <p id="practicalApplications"></p>
+                </div>
+                
+                <!-- Full image preview -->
+                <div class="modal-full-image-container">
+                    <div class="modal-full-image-wrapper">
+                        <img id="modalFullImage" src="" alt="" class="modal-full-image">
+                    </div>
+                </div>
+
+                <!-- Design details grid -->
+                <div class="design-details">
+                    <div class="detail-item">
+                        <h4>Poster Type</h4>
+                        <p id="posterType"></p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>File Formats</h4>
+                        <p id="fileFormat"></p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Dimensions</h4>
+                        <p id="dimensions"></p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Downloads</h4>
+                        <p id="downloadCount"></p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Orientation</h4>
+                        <p id="orientation"></p>
+                    </div>
+                    <div class="detail-item">
+                        <h4>Print Ready</h4>
+                        <p id="printReady"></p>
+                    </div>
+                </div>
+                
+                <!-- File format badges -->
+                <div class="file-formats">
+                    <h3>Available Formats</h3>
+                    <div class="format-badges" id="formatBadges"></div>
+                </div>
+                
+                <!-- Color palette -->
+                <div class="color-palette">
+                    <h3>Color Palette</h3>
+                    <div class="colors" id="colorPalette"></div>
+                </div>
+                
+                <!-- Tags -->
+                <div class="tags-section">
+                    <h3>Tags</h3>
+                    <div class="tags" id="tagsContainer"></div>
+                </div>
+                
+                <!-- Key features -->
+                <div class="features-section">
+                    <h3>Key Features</h3>
+                    <ul id="featuresList"></ul>
+                </div>
+                
+                <!-- Action buttons (NO purchase, only download) -->
+                <div class="modal-actions">
+                    <button class="btn btn-primary" id="previewBtn">
+                        <i class="fas fa-eye"></i> Preview Full Size
+                    </button>
+                    <button class="btn btn-secondary" id="customizeBtn">
+                        <i class="fas fa-edit"></i> Customize Online
+                    </button>
+                    <button class="btn btn-success" id="downloadTemplateBtn">
+                        <i class="fas fa-download"></i> Download Template
+                    </button>
+                </div>
+
+                <!-- Video Tutorial Section (hidden by default) -->
+                <div class="video-tutorial-section" id="videoTutorialSection" style="display: none;">
+                    <h3><i class="fab fa-youtube"></i> Video Tutorial</h3>
+                    <div class="video-container">
+                        <a href="#" id="videoLink" target="_blank" class="video-thumbnail">
+                            <img id="videoThumbnail" src="" alt="Video Tutorial Thumbnail">
+                            <div class="play-button"><i class="fas fa-play-circle"></i></div>
+                        </a>
+                        <p id="videoCaption">Watch a step‑by‑step tutorial on how to customize this poster.</p>
+                    </div>
+                </div>
+                
+                <!-- Related posters -->
+                <div class="related-designs">
+                    <h3>Related Posters</h3>
+                    <div class="related-grid" id="relatedDesigns"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== NEWSLETTER ===== -->
+    <div class="container">
+        <div class="newsletter" data-aos="fade-up">
+            <div class="newsletter-content">
+                <h2>Get Free Poster Templates Monthly</h2>
+                <p>Subscribe to receive monthly free poster templates, design tips, and exclusive resources</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-wave"></div>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col logo-col">
+                    <div class="footer-logo">
+                        <img src="../../assets/images/icons/starford.png" alt="Starford Tech Graphics Logo">
+                        <h3>Starford Tech Graphics</h3>
+                    </div>
+                    <p style="color: #bbb; margin-bottom: 20px;">Transforming ideas into visually stunning designs that communicate, engage, and inspire.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../../index.html">Home</a></li>
+                        <li><a href="../../templates/index.html">Templates</a></li>
+                        <li><a href="../../resources/index.html">Resources</a></li>
+                        <li><a href="../../blog/index.html">Blog</a></li>
+                        <li><a href="../../about.html">About Us</a></li>
+                        <li><a href="../../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Poster Categories</h3>
+                    <ul>
+                        <li><a href="#movie-posters">Movie Posters</a></li>
+                        <li><a href="#event-posters">Event Posters</a></li>
+                        <li><a href="#motivational-posters">Motivational Posters</a></li>
+                        <li><a href="#advertising-posters">Advertising Posters</a></li>
+                        <li><a href="#music-posters">Music Posters</a></li>
+                        <li><a href="#educational-posters">Educational Posters</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="../../resources/index.html">Tutorials</a></li>
+                        <li><a href="../../fonts.html">Free Fonts</a></li>
+                        <li><a href="../../color-palettes.html">Color Palettes</a></li>
+                        <li><a href="../../templates/index.html">Free Templates</a></li>
+                        <li><a href="../../blog/index.html">Design Tips</a></li>
+                        <li><a href="../../faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Design Ave, Creative District</p>
+                        <p><i class="fas fa-envelope"></i> hello@starfordtech.com</p>
+                        <p><i class="fas fa-phone-alt"></i> +256 (770) 500-867</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM EST</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Starford Tech Graphics. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+                <p class="footer-note">All templates and resources are completely free to download and use.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- YouTube Subscription Popup -->
+    <div class="youtube-popup" id="youtubePopup">
+        <div class="youtube-header">
+            <div class="youtube-title">
+                <i class="fab fa-youtube"></i>
+                <h3>Subscribe to Our Channel</h3>
+            </div>
+            <button class="close-youtube" id="closeYoutubePopup">&times;</button>
+        </div>
+        <div class="youtube-body">
+            <div class="channel-info">
+                <div class="channel-avatar">
+                    <img src="../../assets/images/icons/starford.png" alt="Starford Tech Channel">
+                </div>
+                <div class="channel-details">
+                    <h4>Starford Tech Graphics</h4>
+                    <div class="channel-stats">
+                        <div class="channel-stat"><i class="fas fa-video"></i><span>128 videos</span></div>
+                        <div class="channel-stat"><i class="fas fa-users"></i><span>5.2K subscribers</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="youtube-content">
+                <p>Join our growing community of designers! Get tutorials and design tips.</p>
+            </div>
+            <div class="youtube-actions">
+                <button class="btn-youtube btn-subscribe" id="subscribeBtn"><i class="fab fa-youtube"></i> Subscribe</button>
+                <button class="btn-youtube btn-view-channel" id="viewChannelBtn"><i class="fas fa-external-link-alt"></i> View Channel</button>
+            </div>
+        </div>
+        <div class="youtube-footer">
+            <p>Don't miss out on our latest design content! <a href="#">Learn more</a></p>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    
+    <!-- Custom JS for this page -->
+    <script src="../../assets/js/templates/posters/index.js"></script>
+</body>
+</html>

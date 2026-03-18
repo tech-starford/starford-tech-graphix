@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Blog | Starford Tech Graphics</title>
+    <meta name="description" content="Read the latest design tips, tutorials, and industry insights from the Starford Tech Graphics team.">
+
+    <!-- Favicon (paths back to root) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/starford-tech-box-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/starford-tech-box-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Slick Slider (not heavily used but kept) -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+
+    <!-- Main Stylesheet (adjusted path) -->
+    <link rel="stylesheet" href="../assets/css/index.css">
+
+    <style>
+        /* Blog specific styles */
+        .blog-hero {
+            background: linear-gradient(135deg, #0a0a2a, #1a1a3a);
+            padding: 120px 0 80px;
+            color: white;
+            text-align: center;
+        }
+        .blog-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .blog-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        .blog-grid {
+            display: grid;
+            grid-template-columns: 2.3fr 0.7fr;
+            gap: 40px;
+            margin: 10px 0;
+        }
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .blog-card {
+            background: var(--white);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--box-shadow-sm);
+            transition: var(--transition);
+            border: 1px solid var(--light-gray);
+        }
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--box-shadow-lg);
+            border-color: var(--primary-light);
+        }
+        .blog-card-img {
+            height: 150px;
+            overflow: hidden;
+        }
+        .blog-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .blog-card:hover .blog-card-img img {
+            transform: scale(1.05);
+        }
+        .blog-card-content {
+            padding: 25px;
+        }
+        .blog-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.8rem;
+            color: var(--medium-gray);
+            margin-bottom: 10px;
+        }
+        .blog-meta i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+        .blog-card h3 {
+            font-size: 1rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .blog-excerpt {
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            transition: gap 0.3s;
+        }
+        .read-more:hover {
+            gap: 12px;
+        }
+        /* Sidebar */
+        .blog-sidebar {
+            position: sticky;
+            top: 100px;
+            align-self: start;
+        }
+        .sidebar-widget {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow-sm);
+            border: 1px solid var(--light-gray);
+        }
+        .sidebar-widget h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .sidebar-widget h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        .category-list {
+            list-style: none;
+        }
+        .category-list li {
+            margin-bottom: 12px;
+        }
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--dark-gray);
+            transition: color 0.3s;
+        }
+        .category-list a:hover {
+            color: var(--primary);
+        }
+        .popular-post {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .popular-post img {
+            width: 70px;
+            height: 70px;
+            border-radius: var(--border-radius);
+            object-fit: cover;
+        }
+        .popular-post-info h4 {
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+        .popular-post-info .date {
+            font-size: 0.8rem;
+            color: var(--medium-gray);
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .tag {
+            background: var(--light);
+            padding: 8px 15px;
+            border-radius: var(--border-radius-full);
+            font-size: 0.85rem;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+        .tag:hover {
+            background: var(--primary);
+            color: white;
+        }
+        @media (max-width: 992px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            .blog-sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (paths back to root: ../index.html, assets, etc.) -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/icons/starford.png" alt="Starford Tech Graphics Logo">
+                Starford<span>Tech</span>
+            </a>
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="../templates/index.html">Templates <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu dropdown">
+                            <li>
+                                <a href="../templates/flyers/index.html">Flyers <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-side">
+                                    <li><a href="../templates/flyers/index.html#business-flyers">Business Flyers</a></li>
+                                    <li><a href="../templates/flyers/index.html#event-flyers">Event Flyers</a></li>
+                                    <li><a href="../templates/flyers/index.html#sale-flyers">Sale Flyers</a></li>
+                                    <li><a href="../templates/flyers/index.html#real-estate-flyers">Real Estate</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="../templates/logos/index.html">Logos <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-side">
+                                    <li><a href="../templates/logos/index.html#business-logos">Business Logos</a></li>
+                                    <li><a href="../templates/logos/index.html#creative-logos">Creative Logos</a></li>
+                                    <li><a href="../templates/logos/index.html#minimal-logos">Minimal Logos</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="../templates/mockups/index.html">Mockups <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-side">
+                                    <li><a href="../templates/mockups/index.html#device-mockups">Device Mockups</a></li>
+                                    <li><a href="../templates/mockups/index.html#branding-mockups">Branding Mockups</a></li>
+                                    <li><a href="../templates/mockups/index.html#product-mockups">Product Mockups</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../templates/posters/index.html">Posters</a></li>
+                            <li><a href="../templates/calendars/index.html">Calendars</a></li>
+                            <li><a href="../templates/business-cards/index.html">Business Cards</a></li>
+                            <li><a href="../templates/social-media/index.html">Social Media</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="../resources/index.html">Resources <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../resources/index.html"><i class="fas fa-video"></i> Tutorials</a></li>
+                            <li><a href="../templates/index.html"><i class="fas fa-file-download"></i> Templates</a></li>
+                            <li><a href="../fonts.html"><i class="fas fa-font"></i> Fonts</a></li>
+                            <li><a href="../color-palettes.html"><i class="fas fa-palette"></i> Color Palettes</a></li>
+                            <li><a href="./index.html"><i class="fas fa-blog"></i> Design Blog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="./index.html">Blog</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search designs...">
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+                    <div class="user-auth">
+                        <button class="user-btn" id="userBtn">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Account</span>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="#" class="login-btn" id="loginBtn">Login</a>
+                            <a href="#" class="signup-btn" id="signupBtn">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <button class="mobile-nav-toggle" aria-controls="mobile-nav" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/icons/starford.png" alt="Starford Tech Graphics Logo">
+                Starford<span>Tech</span>
+            </a>
+            <button class="mobile-nav-toggle" aria-controls="mobile-nav" aria-expanded="false">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li>
+                <div class="mobile-dropdown-toggle">
+                    <a href="../templates/index.html">Templates <i class="fas fa-chevron-down"></i></a>
+                </div>
+                <ul class="mobile-dropdown">
+                    <li><a href="../templates/flyers/index.html">Flyers</a></li>
+                    <li><a href="../templates/logos/index.html">Logos</a></li>
+                    <li><a href="../templates/mockups/index.html">Mockups</a></li>
+                    <li><a href="../templates/posters/index.html">Posters</a></li>
+                    <li><a href="../templates/calendars/index.html">Calendars</a></li>
+                    <li><a href="../templates/business-cards/index.html">Business Cards</a></li>
+                    <li><a href="../templates/social-media/index.html">Social Media</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="mobile-dropdown-toggle">
+                    <a href="../resources/index.html">Resources <i class="fas fa-chevron-down"></i></a>
+                </div>
+                <ul class="mobile-dropdown">
+                    <li><a href="../resources/index.html">Tutorials</a></li>
+                    <li><a href="../templates/index.html">Templates</a></li>
+                    <li><a href="../fonts.html">Fonts</a></li>
+                    <li><a href="../color-palettes.html">Color Palettes</a></li>
+                    <li><a href="./index.html">Design Blog</a></li>
+                </ul>
+            </li>
+            <li><a href="./index.html">Blog</a></li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="#" class="mobile-login-btn">Login</a></li>
+            <li><a href="#" class="mobile-signup-btn">Sign Up</a></li>
+        </ul>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <img class="auth-modal-img" src="../assets/images/icons/starford.png" alt="Starford Tech">
+                <h2>Welcome Back</h2>
+                <button class="close-auth-modal" id="closeAuthModal">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group"><input type="email" placeholder="Email Address" required></div>
+                    <div class="form-group"><input type="password" placeholder="Password" required></div>
+                    <div class="form-options">
+                        <label class="remember-me"><input type="checkbox"> Remember me</label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-block">Login</button>
+                    <div class="divider"><span>Or continue with</span></div>
+                    <div class="social-login">
+                        <button type="button" class="social-btn google"><i class="fab fa-google"></i> Google</button>
+                        <button type="button" class="social-btn facebook"><i class="fab fa-facebook"></i> Facebook</button>
+                    </div>
+                </form>
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group"><input type="text" placeholder="Full Name" required></div>
+                    <div class="form-group"><input type="email" placeholder="Email Address" required></div>
+                    <div class="form-group"><input type="password" placeholder="Password" required></div>
+                    <div class="form-group"><input type="password" placeholder="Confirm Password" required></div>
+                    <div class="form-group">
+                        <label class="terms"><input type="checkbox" required> I agree to the <a href="#">Terms</a> and <a href="#">Privacy</a></label>
+                    </div>
+                    <button type="submit" class="btn btn-block">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Design Blog & Insights</h1>
+            <p>Tips, tutorials, and industry news from the Starford Tech Graphics team. Stay inspired and level up your design skills.</p>
+        </div>
+    </section>
+
+    <!-- Main Blog Content -->
+    <div class="container">
+        <div class="blog-grid">
+            <!-- Left side: posts grid -->
+            <div class="posts-grid" id="postsGrid">
+                <!-- Posts will be dynamically inserted by JavaScript -->
+            </div>
+
+            <!-- Right sidebar -->
+            <aside class="blog-sidebar">
+                <div class="sidebar-widget">
+                    <h3>Categories</h3>
+                    <ul class="category-list" id="categoryList">
+                        <!-- populated by js -->
+                    </ul>
+                </div>
+                <div class="sidebar-widget">
+                    <h3>Popular Posts</h3>
+                    <div id="popularPosts">
+                        <!-- populated by js -->
+                    </div>
+                </div>
+                <div class="sidebar-widget">
+                    <h3>Tags</h3>
+                    <div class="tags" id="tagCloud">
+                        <!-- populated by js -->
+                    </div>
+                </div>
+                <div class="sidebar-widget">
+                    <h3>Follow Us</h3>
+                    <div class="social-links" style="justify-content: flex-start;">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="container">
+        <div class="newsletter" data-aos="">
+            <div class="newsletter-content">
+                <h2>Never Miss a Post</h2>
+                <p>Subscribe to get weekly design tips, free resources, and blog updates.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer (paths to root) -->
+    <footer>
+        <div class="footer-wave"></div>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col logo-col">
+                    <div class="footer-logo">
+                        <img src="../assets/images/icons/starford.png" alt="Starford Tech Graphics Logo">
+                        <h3>Starford Tech Graphics</h3>
+                    </div>
+                    <p style="color: #bbb;">Transforming ideas into visually stunning designs that communicate, engage, and inspire.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../templates/index.html">Templates</a></li>
+                        <li><a href="../resources/index.html">Resources</a></li>
+                        <li><a href="./index.html">Blog</a></li>
+                        <li><a href="../about.html">About Us</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Design Categories</h3>
+                    <ul>
+                        <li><a href="../templates/flyers/index.html">Flyers</a></li>
+                        <li><a href="../templates/logos/index.html">Logos</a></li>
+                        <li><a href="../templates/posters/index.html">Posters</a></li>
+                        <li><a href="../templates/business-cards/index.html">Business Cards</a></li>
+                        <li><a href="../templates/social-media/index.html">Social Media</a></li>
+                        <li><a href="../templates/mockups/index.html">Mockups</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="../resources/index.html">Tutorials</a></li>
+                        <li><a href="../fonts.html">Free Fonts</a></li>
+                        <li><a href="../color-palettes.html">Color Palettes</a></li>
+                        <li><a href="../templates/index.html">Free Templates</a></li>
+                        <li><a href="./index.html">Design Tips</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Design Ave, Creative District</p>
+                        <p><i class="fas fa-envelope"></i> hello@starfordtech.com</p>
+                        <p><i class="fas fa-phone-alt"></i> +256 (770) 500-867</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM EST</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Starford Tech Graphics. All rights reserved. | <a href="../privacy.html">Privacy Policy</a> | <a href="../terms.html">Terms of Service</a></p>
+                <p class="footer-note">All templates and resources are completely free to download and use.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- YouTube Popup -->
+    <div class="youtube-popup" id="youtubePopup">
+        <div class="youtube-header">
+            <div class="youtube-title"><i class="fab fa-youtube"></i><h3>Subscribe to Our Channel</h3></div>
+            <button class="close-youtube" id="closeYoutubePopup">&times;</button>
+        </div>
+        <div class="youtube-body">
+            <div class="channel-info">
+                <div class="channel-avatar"><img src="../assets/images/icons/starford.png" alt="Starford Tech Channel"></div>
+                <div class="channel-details">
+                    <h4>Starford Tech Graphics</h4>
+                    <div class="channel-stats">
+                        <div class="channel-stat"><i class="fas fa-video"></i><span>128 videos</span></div>
+                        <div class="channel-stat"><i class="fas fa-users"></i><span>5.2K subscribers</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="youtube-content"><p>Join our growing community of designers! Get tutorials and design tips.</p></div>
+            <div class="youtube-actions">
+                <button class="btn-youtube btn-subscribe" id="subscribeBtn"><i class="fab fa-youtube"></i> Subscribe</button>
+                <button class="btn-youtube btn-view-channel" id="viewChannelBtn"><i class="fas fa-external-link-alt"></i> View Channel</button>
+            </div>
+        </div>
+        <div class="youtube-footer"><p>Don't miss out on our latest design content! <a href="#">Learn more</a></p></div>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- JS Libraries -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+    <!-- Main JS (shared) -->
+    <script src="../assets/js/wahara.js"></script>
+
+    <!-- Blog Data and Population Script -->
+    <script>
+        (function() {
+            // ----- Blog Post Data -----
+            const blogPosts = [
+                {
+                    id: 1,
+                    title: "10 Tips for Creating Stunning Business Flyers",
+                    excerpt: "Learn the essential design principles that make flyers stand out and drive engagement.",
+                    image: "../assets/images/blog/flyer-tips.jpg",
+                    date: "2025-02-15",
+                    author: "Sarah K.",
+                    category: "Design Tips",
+                    tags: ["flyers", "tips", "business"],
+                    featured: true,
+                    popular: true
+                },
+                {
+                    id: 2,
+                    title: "How to Choose the Right Color Palette for Your Brand",
+                    excerpt: "Color psychology and practical advice for selecting a palette that resonates.",
+                    image: "../assets/images/blog/color-palette.jpg",
+                    date: "2025-02-10",
+                    author: "James M.",
+                    category: "Branding",
+                    tags: ["color", "branding", "psychology"],
+                    featured: true,
+                    popular: true
+                },
+                {
+                    id: 3,
+                    title: "Mastering Logo Design: A Beginner's Guide",
+                    excerpt: "Step-by-step walkthrough of the logo design process from concept to final file.",
+                    image: "../assets/images/blog/logo-design.jpg",
+                    date: "2025-02-05",
+                    author: "Anna L.",
+                    category: "Tutorials",
+                    tags: ["logo", "design", "beginner"],
+                    featured: false,
+                    popular: true
+                },
+                {
+                    id: 4,
+                    title: "Top 5 Free Fonts for Modern Graphic Design",
+                    excerpt: "Our curated list of high-quality, free fonts that will elevate your projects.",
+                    image: "../assets/images/blog/free-fonts.jpg",
+                    date: "2025-01-28",
+                    author: "David R.",
+                    category: "Resources",
+                    tags: ["fonts", "free", "typography"],
+                    featured: false,
+                    popular: false
+                },
+                {
+                    id: 5,
+                    title: "Social Media Image Sizes Cheat Sheet (2025)",
+                    excerpt: "Never crop wrong again: updated dimensions for all major platforms.",
+                    image: "../assets/images/blog/social-sizes.jpg",
+                    date: "2025-01-20",
+                    author: "Lisa W.",
+                    category: "Social Media",
+                    tags: ["social media", "sizes", "cheatsheet"],
+                    featured: true,
+                    popular: true
+                },
+                {
+                    id: 6,
+                    title: "How to Create a Mockup That Wows Clients",
+                    excerpt: "Tips for presenting your designs in realistic mockups to impress.",
+                    image: "../assets/images/blog/mockup-tips.jpg",
+                    date: "2025-01-12",
+                    author: "Chris P.",
+                    category: "Tutorials",
+                    tags: ["mockups", "presentation", "client"],
+                    featured: false,
+                    popular: false
+                }
+            ];
+
+            // Helper to format date
+            function formatDate(dateStr) {
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                return new Date(dateStr).toLocaleDateString('en-US', options);
+            }
+
+            // Render posts grid
+            const postsGrid = document.getElementById('postsGrid');
+            if (postsGrid) {
+                let html = '';
+                blogPosts.forEach(post => {
+                    html += `
+                        <article class="blog-card">
+                            <div class="blog-card-img">
+                                <img src="${post.image}" alt="${post.title}" loading="lazy" onerror="this.src='https://via.placeholder.com/600x400?text=Blog+Post'">
+                            </div>
+                            <div class="blog-card-content">
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar-alt"></i> ${formatDate(post.date)}</span>
+                                    <span><i class="far fa-user"></i> ${post.author}</span>
+                                </div>
+                                <h3>${post.title}</h3>
+                                <p class="blog-excerpt">${post.excerpt}</p>
+                                <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </article>
+                    `;
+                });
+                postsGrid.innerHTML = html;
+            }
+
+            // Categories (unique from posts)
+            const categories = [...new Set(blogPosts.map(p => p.category))];
+            const categoryList = document.getElementById('categoryList');
+            if (categoryList) {
+                let catHtml = '';
+                categories.forEach(cat => {
+                    const count = blogPosts.filter(p => p.category === cat).length;
+                    catHtml += `<li><a href="#">${cat} <span>(${count})</span></a></li>`;
+                });
+                categoryList.innerHTML = catHtml;
+            }
+
+            // Popular posts (filter popular: true, take 3)
+            const popularPostsDiv = document.getElementById('popularPosts');
+            if (popularPostsDiv) {
+                const popular = blogPosts.filter(p => p.popular).slice(0, 3);
+                let popHtml = '';
+                popular.forEach(p => {
+                    popHtml += `
+                        <div class="popular-post">
+                            <img src="${p.image}" alt="${p.title}" onerror="this.src='https://via.placeholder.com/70'">
+                            <div class="popular-post-info">
+                                <h4><a href="#">${p.title}</a></h4>
+                                <div class="date"><i class="far fa-calendar-alt"></i> ${formatDate(p.date)}</div>
+                            </div>
+                        </div>
+                    `;
+                });
+                popularPostsDiv.innerHTML = popHtml;
+            }
+
+            // Tag cloud (all tags, maybe limit to 10)
+            const allTags = blogPosts.flatMap(p => p.tags);
+            const uniqueTags = [...new Set(allTags)].slice(0, 12);
+            const tagCloud = document.getElementById('tagCloud');
+            if (tagCloud) {
+                let tagHtml = '';
+                uniqueTags.forEach(tag => {
+                    tagHtml += `<a href="#" class="tag">${tag}</a>`;
+                });
+                tagCloud.innerHTML = tagHtml;
+            }
+
+            // AOS init
+            if (window.AOS) AOS.init({ duration: 200, once: true });
+
+            // YouTube popup (from wahara.js handles it)
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | Starford Tech Graphics</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom Admin CSS -->
+    <link rel="stylesheet" href="../assets/css/admin.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="../assets/images/icons/starford.png" alt="Starford Tech">
+                <span>Admin</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="#"><i class="fas fa-palette"></i> Templates</a>
+                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1><i class="fas fa-cog"></i> Manage Templates</h1>
+                <div class="user-info" id="userDisplay"></div>
+            </header>
+
+            <section class="content">
+                <!-- Template Form (Add / Edit) -->
+                <div class="card">
+                    <h2 class="card-title" id="formTitle">Add New Template</h2>
+                    <form id="templateForm">
+                        <input type="hidden" id="templateId">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="title">Title *</label>
+                                <input type="text" id="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subtitle">Subtitle</label>
+                                <input type="text" id="subtitle">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" rows="2"></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="category">Category *</label>
+                                <select id="category" required>
+                                    <option value="">-- Select --</option>
+                                    <option value="flyers">Flyers</option>
+                                    <option value="logos">Logos</option>
+                                    <option value="business-cards">Business Cards</option>
+                                    <option value="social-media">Social Media</option>
+                                    <option value="posters">Posters</option>
+                                    <option value="calendars">Calendars</option>
+                                    <option value="mockups">Mockups</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="subcategory">Subcategory</label>
+                                <input type="text" id="subcategory" placeholder="e.g., Business Flyers">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="image_url">Image URL *</label>
+                                <input type="url" id="image_url" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="full_image_url">Full Image URL</label>
+                                <input type="url" id="full_image_url">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="download_url">Download URL *</label>
+                                <input type="url" id="download_url" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="file_formats">File Formats (comma separated)</label>
+                                <input type="text" id="file_formats" placeholder="PDF, PSD, AI">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dimensions">Dimensions</label>
+                                <input type="text" id="dimensions" placeholder="e.g., A4">
+                            </div>
+                            <div class="form-group">
+                                <label for="software">Software (comma separated)</label>
+                                <input type="text" id="software" placeholder="Adobe Photoshop, Illustrator">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="print_ready">Print Ready</label>
+                                <input type="text" id="print_ready" placeholder="Yes/No">
+                            </div>
+                            <div class="form-group">
+                                <label for="color_mode">Color Mode</label>
+                                <input type="text" id="color_mode" placeholder="CMYK/RGB">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="file_size">File Size</label>
+                                <input type="text" id="file_size" placeholder="e.g., 45 MB">
+                            </div>
+                            <div class="form-group">
+                                <label for="orientation">Orientation</label>
+                                <select id="orientation">
+                                    <option value="portrait">Portrait</option>
+                                    <option value="landscape">Landscape</option>
+                                    <option value="square">Square</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="paper_size">Paper Size</label>
+                                <input type="text" id="paper_size" placeholder="e.g., A4, US Letter">
+                            </div>
+                            <div class="form-group">
+                                <label for="tags">Tags (comma separated)</label>
+                                <input type="text" id="tags" placeholder="business, corporate">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="design_details">Design Details</label>
+                            <textarea id="design_details" rows="2"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="materials_specs">Materials & Specifications</label>
+                            <textarea id="materials_specs" rows="2"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="design_inspiration">Design Inspiration</label>
+                            <textarea id="design_inspiration" rows="2"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="practical_applications">Practical Applications</label>
+                            <textarea id="practical_applications" rows="2"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="features">Features (comma separated)</label>
+                            <input type="text" id="features" placeholder="Fully editable, Print-ready">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="colors">Colors (comma separated hex codes)</label>
+                            <input type="text" id="colors" placeholder="#2C3E50, #3498DB">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="likes_count">Likes Count</label>
+                                <input type="number" id="likes_count" value="0" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="downloads_count">Downloads Count</label>
+                                <input type="number" id="downloads_count" value="0" min="0">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="favorites_count">Favorites Count</label>
+                                <input type="number" id="favorites_count" value="0" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="shares_count">Shares Count</label>
+                                <input type="number" id="shares_count" value="0" min="0">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bookmarks_count">Bookmarks Count</label>
+                                <input type="number" id="bookmarks_count" value="0" min="0">
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary" id="saveBtn">Save Template</button>
+                            <button type="button" class="btn btn-secondary" id="cancelEdit">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Templates List -->
+                <div class="card">
+                    <h2 class="card-title">All Templates</h2>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Subcategory</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="templatesList">
+                                <tr><td colspan="5">Loading...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../assets/js/admin/admin.js"></script>
+</body>
+</html>

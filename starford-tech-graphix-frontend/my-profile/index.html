@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | Starford Tech Graphics</title>
+    <meta name="description" content="Your personal profile – manage your liked, favorited, bookmarked, and downloaded templates.">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/icons/starford-tech-box-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/icons/starford-tech-box-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Main Stylesheet (shared) -->
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <!-- Profile specific styles (enhanced) -->
+    <link rel="stylesheet" href="../assets/css/my-profile/my-profile.css">
+</head>
+<body>
+    <!-- Header (same as index, with mobile user button) -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/icons/starford.png" alt="Starford Tech Graphics Logo"> 
+                Starford<span>Tech</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="../templates/index.html">Templates <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu dropdown">
+                            <li>
+                                <a href="../templates/flyers/index.html">Flyers <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-side">
+                                    <li><a href="../templates/flyers/index.html#business-flyers">Business Flyers</a></li>
+                                    <li><a href="../templates/flyers/index.html#event-flyers">Event Flyers</a></li>
+                                    <li><a href="../templates/flyers/index.html#sale-flyers">Sale Flyers</a></li>
+                                    <li><a href="../templates/flyers/index.html#real-estate-flyers">Real Estate</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="../templates/logos/index.html">Logos <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-side">
+                                    <li><a href="../templates/logos/index.html#business-logos">Business Logos</a></li>
+                                    <li><a href="../templates/logos/index.html#creative-logos">Creative Logos</a></li>
+                                    <li><a href="../templates/logos/index.html#minimal-logos">Minimal Logos</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="../templates/mockups/index.html">Mockups <i class="fas fa-chevron-right"></i></a>
+                                <ul class="dropdown-side">
+                                    <li><a href="../templates/mockups/index.html#device-mockups">Device Mockups</a></li>
+                                    <li><a href="../templates/mockups/index.html#branding-mockups">Branding Mockups</a></li>
+                                    <li><a href="../templates/mockups/index.html#product-mockups">Product Mockups</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../templates/posters/index.html">Posters</a></li>
+                            <li><a href="../templates/calendars/index.html">Calendars</a></li>
+                            <li><a href="../templates/business-cards/index.html">Business Cards</a></li>
+                            <li><a href="../templates/social-media/index.html">Social Media</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="../resources/index.html">Resources <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../resources/index.html"><i class="fas fa-video"></i> Tutorials</a></li>
+                            <li><a href="../templates/index.html"><i class="fas fa-file-download"></i> Templates</a></li>
+                            <li><a href="../fonts.html"><i class="fas fa-font"></i> Fonts</a></li>
+                            <li><a href="../color-palettes.html"><i class="fas fa-palette"></i> Color Palettes</a></li>
+                            <li><a href="../blog/index.html"><i class="fas fa-blog"></i> Design Blog</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../blog/index.html">Blog</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+                
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search designs...">
+                        <div class="search-results" id="searchResults"></div>
+                    </div>
+                    <div class="user-auth">
+                        <button class="user-btn" id="userBtn">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Account</span>
+                        </button>
+                        <div class="user-dropdown" id="userDropdown">
+                            <a href="#" class="login-btn" id="loginBtn">Login</a>
+                            <a href="#" class="signup-btn" id="signupBtn">Sign Up</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Mobile User Button -->
+            <button class="mobile-user-btn" id="mobileUserBtn" aria-label="User menu">
+                <i class="fas fa-user-circle"></i>
+                <span class="user-name">Account</span>
+            </button>
+            <div class="mobile-user-dropdown" id="mobileUserDropdown"></div>
+
+            <!-- Mobile Navigation Toggle -->
+            <button class="mobile-nav-toggle" aria-controls="mobile-nav" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="mobile-nav-header">
+            <a href="../index.html" class="logo">
+                <img src="../assets/images/icons/starford.png" alt="Starford Tech Graphics Logo">
+                Starford<span>Tech</span>
+            </a>
+            <button class="mobile-nav-toggle" aria-controls="mobile-nav" aria-expanded="false">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="mobile-nav-body">
+            <ul class="mobile-nav-links">
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li class="mobile-dropdown">
+                    <div class="mobile-dropdown-toggle">
+                        <a href="../templates/index.html"><i class="fas fa-palette"></i> Templates <i class="fas fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="mobile-dropdown">
+                        <li><a href="../templates/flyers/index.html">Flyers</a></li>
+                        <li><a href="../templates/logos/index.html">Logos</a></li>
+                        <li><a href="../templates/mockups/index.html">Mockups</a></li>
+                        <li><a href="../templates/posters/index.html">Posters</a></li>
+                        <li><a href="../templates/calendars/index.html">Calendars</a></li>
+                        <li><a href="../templates/business-cards/index.html">Business Cards</a></li>
+                        <li><a href="../templates/social-media/index.html">Social Media</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-dropdown">
+                    <div class="mobile-dropdown-toggle">
+                        <a href="../resources/index.html"><i class="fas fa-book-open"></i> Resources <i class="fas fa-chevron-down"></i></a>
+                    </div>
+                    <ul class="mobile-dropdown">
+                        <li><a href="../resources/index.html">Tutorials</a></li>
+                        <li><a href="../templates/index.html">Templates</a></li>
+                        <li><a href="../fonts.html">Fonts</a></li>
+                        <li><a href="../color-palettes.html">Color Palettes</a></li>
+                        <li><a href="../blog/index.html">Design Blog</a></li>
+                    </ul>
+                </li>
+                <li><a href="../blog/index.html"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="../about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="../contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-modal-content">
+            <div class="auth-modal-header">
+                <img class="auth-modal-img" src="../assets/images/icons/starford.png" alt="Starford Tech">
+                <h2>Welcome Back</h2>
+                <button class="close-auth-modal" id="closeAuthModal">&times;</button>
+            </div>
+            <div class="auth-modal-body">
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+                
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group"><input type="email" placeholder="Email Address" required></div>
+                    <div class="form-group"><input type="password" placeholder="Password" required></div>
+                    <div class="form-options">
+                        <label class="remember-me"><input type="checkbox"> Remember me</label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-block">Login</button>
+                    <div class="divider"><span>Or continue with</span></div>
+                    <div class="social-login">
+                        <button type="button" class="social-btn google"><i class="fab fa-google"></i> Google</button>
+                        <button type="button" class="social-btn facebook"><i class="fab fa-facebook"></i> Facebook</button>
+                    </div>
+                </form>
+                
+                <form id="signupForm" class="auth-form">
+                    <div class="form-group"><input type="text" placeholder="Full Name" required></div>
+                    <div class="form-group"><input type="email" placeholder="Email Address" required></div>
+                    <div class="form-group"><input type="password" placeholder="Password" required></div>
+                    <div class="form-group"><input type="password" placeholder="Confirm Password" required></div>
+                    <div class="form-group">
+                        <label class="terms"><input type="checkbox" required> I agree to the <a href="../terms.html">Terms of Service</a> and <a href="../privacy.html">Privacy Policy</a></label>
+                    </div>
+                    <button type="submit" class="btn btn-block">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- ===== PROFILE HERO (Stunning) ===== -->
+    <section class="profile-hero">
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-avatar-wrapper">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <div class="avatar-edit" title="Change avatar">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h1 id="profileName">Loading...</h1>
+                    <p id="profileEmail"></p>
+                    <p class="profile-joined" id="profileJoined"></p>
+                </div>
+                <div class="profile-stats">
+                    <div class="stat-card">
+                        <span class="stat-value" id="statLiked">0</span>
+                        <span class="stat-label">Liked</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="statFavorited">0</span>
+                        <span class="stat-label">Favorites</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="statBookmarked">0</span>
+                        <span class="stat-label">Bookmarks</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value" id="statDownloads">0</span>
+                        <span class="stat-label">Downloads</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile-wave">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#ffffff"></path>
+                <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#ffffff"></path>
+                <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ===== TABS ===== -->
+    <section class="profile-tabs">
+        <div class="container">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="liked"><i class="fas fa-heart"></i> Liked <span class="tab-count" id="countLiked">0</span></button>
+                <button class="tab-btn" data-tab="favorites"><i class="fas fa-star"></i> Favorites <span class="tab-count" id="countFavorites">0</span></button>
+                <button class="tab-btn" data-tab="bookmarks"><i class="fas fa-bookmark"></i> Bookmarks <span class="tab-count" id="countBookmarks">0</span></button>
+                <button class="tab-btn" data-tab="downloads"><i class="fas fa-download"></i> Downloads <span class="tab-count" id="countDownloads">0</span></button>
+            </div>
+            <div class="tab-content active" id="tab-liked">
+                <div class="templates-grid" id="likedGrid"></div>
+            </div>
+            <div class="tab-content" id="tab-favorites">
+                <div class="templates-grid" id="favoritesGrid"></div>
+            </div>
+            <div class="tab-content" id="tab-bookmarks">
+                <div class="templates-grid" id="bookmarksGrid"></div>
+            </div>
+            <div class="tab-content" id="tab-downloads">
+                <div class="templates-grid" id="downloadsGrid"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <div class="container">
+        <div class="newsletter" data-aos="fade-up">
+            <div class="newsletter-content">
+                <h2>Get Free Templates Monthly</h2>
+                <p>Subscribe to receive monthly free templates, design tips, and exclusive resources</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-wave"></div>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col logo-col">
+                    <div class="footer-logo">
+                        <img src="../assets/images/icons/starford.png" alt="Starford Tech Graphics Logo">
+                        <h3>Starford Tech Graphics</h3>
+                    </div>
+                    <p style="color: #bbb; margin-bottom: 20px;">Transforming ideas into visually stunning designs that communicate, engage, and inspire.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.pinterest.com/starfordtech7/" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../templates/index.html">Templates</a></li>
+                        <li><a href="../resources/index.html">Resources</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../about.html">About Us</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Design Categories</h3>
+                    <ul>
+                        <li><a href="../templates/flyers/index.html">Flyers</a></li>
+                        <li><a href="../templates/logos/index.html">Logos</a></li>
+                        <li><a href="../templates/posters/index.html">Posters</a></li>
+                        <li><a href="../templates/business-cards/index.html">Business Cards</a></li>
+                        <li><a href="../templates/social-media/index.html">Social Media</a></li>
+                        <li><a href="../templates/mockups/index.html">Mockups</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="../resources/index.html">Tutorials</a></li>
+                        <li><a href="../fonts.html">Free Fonts</a></li>
+                        <li><a href="../color-palettes.html">Color Palettes</a></li>
+                        <li><a href="../templates/index.html">Free Templates</a></li>
+                        <li><a href="../blog/index.html">Design Tips</a></li>
+                        <li><a href="../faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Design Ave, Creative District</p>
+                        <p><i class="fas fa-envelope"></i> hello@starfordtech.com</p>
+                        <p><i class="fas fa-phone-alt"></i> +256 (770) 500-867</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM EST</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Starford Tech Graphics. All rights reserved. | <a href="../privacy-policy/index.html">Privacy Policy</a> | <a href="../terms&Conditions/">Terms of Service</a></p>
+                <p class="footer-note">All templates and resources are completely free to download and use.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- YouTube Popup -->
+    <div class="youtube-popup" id="youtubePopup">
+        <div class="youtube-header">
+            <div class="youtube-title"><i class="fab fa-youtube"></i><h3>Subscribe to Our Channel</h3></div>
+            <button class="close-youtube" id="closeYoutubePopup">&times;</button>
+        </div>
+        <div class="youtube-body">
+            <div class="channel-info">
+                <div class="channel-avatar"><img src="../assets/images/icons/starford.png" alt="Starford Tech Channel"></div>
+                <div class="channel-details">
+                    <h4>Starford Tech Graphics</h4>
+                    <div class="channel-stats">
+                        <div class="channel-stat"><i class="fas fa-video"></i><span>128 videos</span></div>
+                        <div class="channel-stat"><i class="fas fa-users"></i><span>5.2K subscribers</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="youtube-content"><p>Join our growing community of designers! Get tutorials and design tips.</p></div>
+            <div class="youtube-actions">
+                <button class="btn-youtube btn-subscribe" id="subscribeBtn"><i class="fab fa-youtube"></i> Subscribe</button>
+                <button class="btn-youtube btn-view-channel" id="viewChannelBtn"><i class="fas fa-external-link-alt"></i> View Channel</button>
+            </div>
+        </div>
+        <div class="youtube-footer"><p>Don't miss out on our latest design content! <a href="#">Learn more</a></p></div>
+    </div>
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/my-profile/index.js"></script>
+</body>
+</html>
