@@ -1,5 +1,6 @@
 // Independent Admin JS
-const API_BASE_URL = 'http://localhost:5000'; // Change if needed
+//const API_BASE_URL = 'http://localhost:5000'; // Change if needed
+const API_BASE_URL = 'https://starford-tech-graphix.onrender.com';
 
 // DOM Elements
 const templateForm = document.getElementById('templateForm');

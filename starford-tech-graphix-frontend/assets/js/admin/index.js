@@ -1,6 +1,7 @@
 // Admin JavaScript – complete rewrite
 
-const API_BASE_URL = 'http://localhost:5000';
+// const API_BASE_URL = 'http://localhost:5000';
+const API_BASE_URL = 'https://starford-tech-graphix.onrender.com';
 let currentUser = null;
 let currentPage = { templates: 1, users: 1, subscribers: 1 };
 let totalPages = { templates: 1, users: 1, subscribers: 1 };
