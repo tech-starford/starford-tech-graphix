@@ -1,52 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin Dashboard | Starford Tech Graphics</title>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <!-- Custom Admin CSS -->
-    <link rel="stylesheet" href="../assets/css/inde.css">
-    <link rel="stylesheet" href="../assets/css/admin/index.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../assets/css/inde.css" />
+    <link rel="stylesheet" href="../assets/css/admin/index.css" />
+  </head>
+  <body>
     <div class="admin-wrapper">
-        <!-- Sidebar -->
-        <aside class="sidebar" id="sidebar">
-            <div class="logo">
-                <img src="../assets/images/icons/starford.png" alt="Starford Tech">
-                <span>Admin</span>
-            </div>
-            <nav class="sidebar-nav">
-                <a href="#" class="active" data-tab="dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                <a href="#" data-tab="templates"><i class="fas fa-palette"></i> Templates</a>
-                <a href="#" data-tab="users"><i class="fas fa-users"></i> Users</a>
-                <a href="#" data-tab="subscribers"><i class="fas fa-envelope"></i> Subscribers</a>
-                <a href="#" data-tab="analytics"><i class="fas fa-chart-line"></i> Analytics</a>
-                <a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
-            </nav>
-            <div class="sidebar-footer">
-                <p>v2.0</p>
-            </div>
-        </aside>
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="logo">
+          <img src="../assets/images/icons/starford.png" alt="Starford Tech" />
+          <span>Admin</span>
+        </div>
+        <nav class="sidebar-nav">
+          <a href="#" class="active" data-tab="dashboard"
+            ><i class="fas fa-tachometer-alt"></i> Dashboard</a
+          >
+          <a href="#" data-tab="templates"
+            ><i class="fas fa-palette"></i> Templates</a
+          >
+          <a href="#" data-tab="users"><i class="fas fa-users"></i> Users</a>
+          <a href="#" data-tab="subscribers"
+            ><i class="fas fa-envelope"></i> Subscribers</a
+          >
+          <a href="#" data-tab="analytics"
+            ><i class="fas fa-chart-line"></i> Analytics</a
+          >
+          <a href="#" id="logoutBtn"
+            ><i class="fas fa-sign-out-alt"></i> Logout</a
+          >
+        </nav>
+        <div class="sidebar-footer">
+          <p>v2.0</p>
+        </div>
+      </aside>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <header class="top-bar">
-                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
-                <h1 id="pageTitle">Dashboard</h1>
-                <div class="user-info" id="userDisplay"></div>
-            </header>
+      <!-- Main Content -->
+      <main class="main-content">
+        <header class="top-bar">
+          <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <h1 id="pageTitle">Dashboard</h1>
+          <div class="user-info" id="userDisplay"></div>
+        </header>
 
-            <section class="content" id="contentArea">
-                <!-- Content will be dynamically loaded by tabs -->
-            </section>
-        </main>
+        <section class="content" id="contentArea">
+          <!-- Content will be dynamically loaded by tabs -->
+        </section>
+      </main>
     </div>
 
     <script src="../assets/js/admin/index.js"></script>
-</body>
+  </body>
 </html>
