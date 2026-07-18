@@ -232,6 +232,38 @@
         background: var(--primary);
         color: white;
       }
+      /* Social Links */
+      .sidebar-widget .social-links {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .sidebar-widget .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: #f0f2f5;
+        color: #555;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-size: 1rem;
+      }
+
+      .sidebar-widget .social-links a:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Make icons always visible */
+      .sidebar-widget .social-links a i {
+        color: inherit;
+      }
       @media (max-width: 992px) {
         .blog-grid {
           grid-template-columns: 1fr;
